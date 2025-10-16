@@ -9,6 +9,7 @@ export const PATCH = ({ params }) => {
     const order = finishOrder(params.id);
     queueMicrotask(() => emitSafe?.('orders:changed', { type: 'finish', order }));
 
+
     return new Response(JSON.stringify(order), {
         headers: { 'content-type': 'application/json' }
     });
